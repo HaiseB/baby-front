@@ -12,12 +12,12 @@ export function Layout({ siteTitle }) {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/leagues">Leagues</Nav.Link>
+                        <Nav.Link href="/Users">Users</Nav.Link>
                         <Nav.Link href="/teams">Teams</Nav.Link>
                         <NavDropdown title="Games" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/games">Game list</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="createGame">
+                            <NavDropdown.Item href="/CreateReadUpdateGame">
                                 Create a game
                             </NavDropdown.Item>
                         </NavDropdown>
