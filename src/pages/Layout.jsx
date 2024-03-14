@@ -13,9 +13,9 @@ export function Layout({ siteTitle }) {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/Users">Users</Nav.Link>
-                        <Nav.Link href="/teams">Teams</Nav.Link>
+                        <Nav.Link href="/Teams">Teams</Nav.Link>
                         <NavDropdown title="Games" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/games">Game list</NavDropdown.Item>
+                            <NavDropdown.Item href="/Games">Game list</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="/CreateReadUpdateGame">
                                 Create a game
