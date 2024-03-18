@@ -1,7 +1,7 @@
 import React from 'react';
-import useUsersListData from '../features/users/usersList/hooks/useUserListData';
-import ToastDismissable from '../ui/ToastDismissable';
-import UsersTable from '../features/users/usersList/components/UsersTable';
+import useUsersListData from '../../features/users/usersList/hooks/useUserListData';
+import ToastDismissable from '../../ui/ToastDismissable';
+import UsersTable from '../../features/users/usersList/components/UsersTable';
 
 const Users = () => {
     const { UsersData, loading, error } = useUsersListData();

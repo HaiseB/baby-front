@@ -1,7 +1,7 @@
 import React from 'react';
-import useGamesListData from '../features/games/gamesList/hooks/useGameListData';
-import ToastDismissable from '../ui/ToastDismissable';
-import GamesTable from '../features/games/gamesList/components/GamesTable';
+import useGamesListData from '../../features/games/gamesList/hooks/useGameListData';
+import ToastDismissable from '../../ui/ToastDismissable';
+import GamesTable from '../../features/games/gamesList/components/GamesTable';
 
 function Games() {
     const { GamesData, loading, error } = useGamesListData();

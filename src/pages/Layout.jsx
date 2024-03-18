@@ -17,7 +17,7 @@ export function Layout({ siteTitle }) {
                         <NavDropdown title="Games" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/Games">Game list</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="/CreateReadUpdateGame">
+                            <NavDropdown.Item href="/Create_Game">
                                 Create a game
                             </NavDropdown.Item>
                         </NavDropdown>

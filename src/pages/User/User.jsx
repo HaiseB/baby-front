@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import BreadcrumbBootstrap from '../ui/Breadcrumb';
-import useUserData from '../features/users/hooks/useUserData';
-import ToastDismissable from '../ui/ToastDismissable';
+import BreadcrumbBootstrap from '../../ui/Breadcrumb';
+import useUserData from '../../features/users/hooks/useUserData';
+import ToastDismissable from '../../ui/ToastDismissable';
 
 function UserPage() {
     const { id } = useParams();
@@ -13,7 +13,7 @@ function UserPage() {
     }
 
     return <div>
-        <BreadcrumbBootstrap />
+        <BreadcrumbBootstrap parent="Users" item="User details" />
         {error ? (
             <ToastDismissable status="error" message={error.message} />
         ) : null}
