@@ -4,7 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Users from "./pages/User/Users";
 import User from "./pages/User/User";
-import Teams from "./pages/Teams";
+import Teams from "./pages/Team/Teams";
 import Games from "./pages/Game/Games";
 import Game from "./pages/Game/Game";
 import CreateGame from "./pages/Game/CreateGame";

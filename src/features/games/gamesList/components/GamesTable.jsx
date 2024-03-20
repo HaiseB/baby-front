@@ -23,11 +23,19 @@ function GamesTable({ games, loading }) {
                 games.map(game => (
                     <tr key={game.id}>
                         <td><Link to={`/game/${game.id}`}>{game.id}</Link></td>
-                        <td><Link to={`/game/${game.id}`}>Team A</Link></td>
-                        <td><Link to={`/game/${game.id}`}>Team A score</Link></td>
-                        <td><Link to={`/game/${game.id}`}>Team B</Link></td>
-                        <td><Link to={`/game/${game.id}`}>Team B score</Link></td>
-                        <td><Link to={`/game/${game.id}`}>{game.is_over ? "true" : "false" }</Link></td>
+                        <td>
+                            {Object.values(game.usersAndScoresRecap.teamAPlayers).map((user, i) => {
+                                return (<span key={i}>{ i != 0 ? <span> / </span> : null } <Link to={`/user/${user.id}`}>{user.name}</Link></span>)
+                            })}
+                        </td>
+                        <td><Link to={`/game/${game.id}`}>{game.usersAndScoresRecap.teamAScore}</Link></td>
+                        <td>
+                            {Object.values(game.usersAndScoresRecap.teamBPlayers).map((user, i) => {
+                                return (<span key={i}>{ i != 0 ? <span> / </span> : null } <Link to={`/user/${user.id}`}>{user.name}</Link></span>)
+                            })}
+                        </td>
+                        <td><Link to={`/game/${game.id}`}>{game.usersAndScoresRecap.teamBScore}</Link></td>
+                        <td><Link to={`/game/${game.id}`}>{game.is_over ? "true" : "false"}</Link></td>
                         <td><Link to={`/game/${game.id}`}>{game.scheduled_at}</Link></td>
                     </tr>
                 ))
