@@ -35,7 +35,7 @@ function GamesTable({ games, loading }) {
                             })}
                         </td>
                         <td><Link to={`/game/${game.id}`}>{game.usersAndScoresRecap.teamBScore}</Link></td>
-                        <td><Link to={`/game/${game.id}`}>{game.is_over ? "true" : "false"}</Link></td>
+                        <td><Link to={`/game/${game.id}`}>{game.isOver ? 'True' : 'False'}</Link></td>
                         <td><Link to={`/game/${game.id}`}>{game.scheduled_at}</Link></td>
                     </tr>
                 ))
