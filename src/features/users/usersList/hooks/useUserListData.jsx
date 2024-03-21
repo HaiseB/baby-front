@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import axios from 'axios';
 
 const useUsersListData = () => {
@@ -6,7 +6,7 @@ const useUsersListData = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
+    useMemo(() => {
         const fetchUsers = async () => {
             try {
                 const response = await axios.get('https://127.0.0.1:8000/api/users?page=1');

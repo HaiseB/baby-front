@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import BreadcrumbBootstrap from '../../ui/Breadcrumb';
 import useGameData from '../../features/games/hooks/useGameData';
