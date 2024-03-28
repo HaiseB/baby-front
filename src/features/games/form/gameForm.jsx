@@ -7,13 +7,15 @@ function GameForm() {
 
     const [teams, setTeams] = useState([]);
     const [users, setUsers] = useState([]);
+    const [teamAUsers, setTeamAUsers] = useState([]);
+    const [teamBUsers, setTeamBUsers] = useState([]);
     const [gameData, setGameData] = useState({
         roundNumber: 0,
         isOver: false,
         teams: [],
         goals: [],
         users: [],
-        scheduledAt: "",
+        scheduledAt: new Date().toISOString().substring(0, 16),
     });
 
     useMemo(() => {
@@ -36,6 +38,19 @@ function GameForm() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
+        if (name === 'teamA-users') {
+            setTeamAUsers(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        } else if (name === 'teamB-users') {
+            setTeamBUsers(prevState => ({
+                ...prevState,
+                [name]: value
+            }));
+        }
+
         setGameData(prevState => ({
             ...prevState,
             [name]: value
@@ -44,6 +59,21 @@ function GameForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const apiUsersResource = [];
+
+        Object.values(teamAUsers).forEach(id => {
+            apiUsersResource.push('api/users/' + id)
+        });
+
+        Object.values(teamBUsers).forEach(id => {
+            apiUsersResource.push('api/users/' + id)
+        });
+
+        setGameData(prevState => ({
+            ...prevState,
+            users: apiUsersResource
+        }));
+
         axios.post('https://127.0.0.1:8000/api/games', gameData, {
             headers: {
                 'Accept': "application/ld+json",
@@ -52,7 +82,10 @@ function GameForm() {
         })
             .then(response => {
                 console.log('Game created successfully:', response.data);
-                // TODO create goals here
+
+                if ( response.data && response.data.users.length > 0) {
+                    // TODO axios post for goals
+                }
             })
             .catch(error => {
                 setError(error);
@@ -121,7 +154,8 @@ function GameForm() {
                         // Sélection du joueur pour le mode Solo
                         <Form.Group controlId="teamA-solo">
                             <Form.Label>Select Solo Player:</Form.Label>
-                            <Form.Control as="select" value={gameData.users[0]} onChange={handleInputChange}>
+                            <Form.Control as="select" name="teamA-users" onChange={handleInputChange}>
+                                <option key='default' value='default'>Choose a User</option>
                                 {users.map(user => (
                                     <option key={user.id} value={user.id}>{user.name}</option>
                                 ))}
@@ -169,7 +203,8 @@ function GameForm() {
                     ) : (
                         <Form.Group controlId="teamB-solo">
                             <Form.Label>Select Solo Player:</Form.Label>
-                            <Form.Control as="select" value={gameData.users[1]} onChange={handleInputChange}>
+                            <Form.Control as="select" name="teamB-users" onChange={handleInputChange}>
+                                <option key='default' value='default'>Choose a User</option>
                                 {users.map(user => (
                                     <option key={user.id} value={user.id}>{user.name}</option>
                                 ))}
