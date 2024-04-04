@@ -6,7 +6,7 @@ export function ToastDismissable({ status, message }) {
 
     const toggleShowA = () => setShowA(!show);
 
-    return <>
+    return <div className='mb-3'>
         <Toast show={show} onClose={toggleShowA}>
             <Toast.Header>
                 <img
@@ -18,7 +18,7 @@ export function ToastDismissable({ status, message }) {
             </Toast.Header>
             <Toast.Body>{message}</Toast.Body>
         </Toast>
-    </>;
+    </div>;
 }
 
 export default ToastDismissable;
